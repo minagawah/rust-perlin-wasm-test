@@ -48,4 +48,5 @@ export interface Particle {
 export interface WindLib {
   // new (): object;
   perlin: Function;
+  simplex: Function;
 }

@@ -1,5 +1,3 @@
-/* eslint camelcase: [0] */
-/* eslint no-unused-vars: [1] */
 /**
  * Based on Johan Karlsson's blog post:
  * https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field
@@ -9,14 +7,10 @@ import { Rect, WindLib, Particle } from './types';
 import { rand, withinRect } from './lib/util';
 import WindLibFactory from './lib/WindLib';
 
-// import { Noise } from 'noisejs';
-
 const PARTICLE_SIZE = 3;
 
 const int = Math.trunc;
 const print = (s: string): void => console.log(`[Flow] ${s}`);
-
-// let noise; // Perlin noise instance.
 
 interface CreateParticle {
   ctx: any;
@@ -100,16 +94,19 @@ export default async function factory (canvas: HTMLCanvasElement) {
   // --------------------------
   // Update
   // --------------------------
-  
+
   // Perlin noise to set new "angle" for each in the field.
-  const angleZoom = (n: number): number => n/20;
+  // const angleZoom = (n: number): number => n/20;
+  const angleZoom = (n: number): number => n/100;
   const getPerlinAngle = (x: number, y: number, zin: number): number => (
     wind.perlin(angleZoom(x), angleZoom(y), zin) * Math.PI * 2
   );
 
   // Perlin noise to set new "length" for each in the field.
-  const distOffset = 40000;
-  const disZoom = (n: number): number => n/40 + distOffset;
+  // const distOffset = 40000;
+  const distOffset = 10;
+  // const disZoom = (n: number): number => n/40 + distOffset;
+  const disZoom = (n: number): number => n/80 + distOffset;
   const getPerlinDist = (x: number, y: number, zin: number): number => (
     wind.perlin(disZoom(x), disZoom(y), zin) * 0.5
   );
@@ -122,6 +119,8 @@ export default async function factory (canvas: HTMLCanvasElement) {
         p.setLength(getPerlinDist(x, y, zin));
       }
     }
+    // zin += 0.001;
+    zin += 0.00015;
   };
 
   const updateParticles = (): void => {
@@ -134,7 +133,6 @@ export default async function factory (canvas: HTMLCanvasElement) {
       }
       p.update(v);
     });
-    zin += 0.001;
   };
 
   /**

@@ -1,6 +1,6 @@
 # rust-perlin-wasm-test
 
-Generates wind streamlines using WASM.
+Generates wind blown particles using WASM.
 
 [1. About](#about)  
 [2. Develop](#dev)  
@@ -17,7 +17,7 @@ Generates wind streamlines using WASM.
 Nothing very fancy.  
 Just calling from browser the perlin noise generator provided by one of Rust's crates,
 [noise](https://docs.rs/noise/0.5.1/noise/).  
-Currently, the array iteration for making a field map (of wind stream vectors)
+Currently, the array iteration for making a vector field (of wind vectors)
 is done by Javascript. Hopefully, I will let Rust do the job instead.
 
 [View Demo](http://tokyo800.jp/minagawah/rust-perlin-wasm-test/)

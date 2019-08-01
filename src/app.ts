@@ -58,8 +58,8 @@ const reset = () => {
   canvas.width = width;
   canvas.height = height;
 
-  const num: number = width * height / 900;
-  // const num = 50;
+  // const num: number = width * height / 900;
+  const num = 60;
   flo.reset({ num, width, height });
   // terrainImage = ter.reset({ width, height });
 };
