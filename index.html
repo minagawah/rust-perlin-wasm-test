@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+</head>
+<body>
+
+<script> 
+const addTwo = (num) => {
+  const text = document.createTextNode(num + 2);
+  document.body.appendChild(text);
+};
+
+const importObject = {
+  env: {
+    addTwo,
+    alert,
+  }
+};
+
+WebAssembly
+  .instantiateStreaming(
+    fetch('wave/wave.gc.wasm'),
+    importObject
+  ).then(wasmModule => {
+    const result = wasmModule.instance.exports.add_one(3);
+    const text = document.createTextNode(result);
+    document.body.appendChild(text);
+    const result2 = wasmModule.instance.exports.add_two(3);
+  }).catch(e => {
+  });
+</script>
+
+</body>
+</html>
