@@ -8,7 +8,8 @@ Generates wind blown particles using WASM.
 &nbsp; [2-2. Node.js](#dev-node)  
 &nbsp; [2-3. MIME TYPE](#dev-mime)  
 [3. Installed NPM Packages](#installed-npm)  
-[4. LICENSE](#license)  
+[4. Notes](#notes)  
+[5. LICENSE](#license)  
 
 
 <a id="about"></a>
@@ -21,6 +22,11 @@ Currently, the array iteration for making a vector field (of wind vectors)
 is done by Javascript. Hopefully, I will let Rust do the job instead.
 
 [View Demo](http://tokyo800.jp/minagawah/rust-perlin-wasm-test/)
+
+**Check out [rust-perlin-wasm-test-2](https://github.com/minagawah/rust-perlin-wasm-test-2/)
+which is another attempt to accomplish the same
+except it uses [wasm-pack](https://github.com/rustwasm/wasm-pack)
+instead of wholly depends on the `nightly` toolchain.**
 
 ![screenshot](screenshot.png "Screenshot")
 
@@ -109,8 +115,30 @@ yarn add debounce-ctx
 ```
 
 
-<a id="5-license"></a>
-## 4. License
+<a id="notes"></a>
+## 4. Notes
+
+```
+https://users.rust-lang.org/t/wasm-unknown-vs-emscripten/22997/2
+IIUC wasm32-unknown-emscripten can be viewed as a legacy, "hacky" approach,
+so I think you should prefer using wasm32-unknown-unkown with wasm-bindgen or stdweb if possible.
+
+https://qiita.com/legokichi/items/5d6344314ab6d6633554
+wasm-bindgen: 基本的な型のなどが入ったクレート
+js-sys: Rust から JavaScript の値を生成するためのクレート
+web-sys: Rust から DOM とかを叩くためのクレート
+wasm-bindgen-futures: Rust の Future と JavaScript の Promise の型を相互変換するためのクレート
+wasm-bindgen-cli: wasm-bindgen や js-sys や web-sys クレートを使って生成した wasm ファイルに Rust と JS の FFI のランタイムを追加するビルドツール
+wasm-pack: wasm-bindgen を使った Rust コードを npm の package.json から呼ぶための設定ファイルを出力するビルドツール
+
+Rust and WebAssembly
+https://rustwasm.github.io/docs/book/print.html
+```
+
+
+
+<a id="license"></a>
+## 5. License
 
 Provided under [WTFPL](./LICENSE).  
 Remember, there are some NPM libraries that are under certain license restrictions.

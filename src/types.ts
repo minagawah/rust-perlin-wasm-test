@@ -33,6 +33,18 @@ export interface Particle {
   draw: Function;
 }
 
+// export interface WindVec {
+//   x: number;
+//   y: number;
+// }
+// 
+// export interface Fields {
+//   width: number;
+//   height: number;
+//   windvecs: WindVec;
+//   new: Function;
+// }
+// 
 // @todo
 // Consider the definition:
 // ------------------------------------------------
@@ -47,6 +59,8 @@ export interface Particle {
 // ------------------------------------------------
 export interface WindLib {
   // new (): object;
+  // WindVec: WindVec,
+  // Fields: Fields,
   perlin: Function;
-  simplex: Function;
+  get_perlin_field: Function;
 }

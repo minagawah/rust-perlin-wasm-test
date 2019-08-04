@@ -89,7 +89,8 @@ const step = () => {
 
 (async () => {
   try {
-    const WindLib: WindLib = await WindLibFactory();
+    // const wind: WindLib = await WindLibFactory();
+    // const arr: any = wind.get_perlin_field();
 
     canvas = <HTMLCanvasElement> document.getElementById('canvas');
     // canvasTerr = document.getElementById('canvasTerrain');

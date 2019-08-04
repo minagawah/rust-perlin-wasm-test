@@ -57,6 +57,7 @@ export default async function factory (canvas: HTMLCanvasElement) {
   };
 
   const resetField = (): void => {
+    // const f = wind.Fields.new();
     field = new Array(cols);
     for (let x = 0; x < cols; x++) {
       field[x] = new Array(rows);

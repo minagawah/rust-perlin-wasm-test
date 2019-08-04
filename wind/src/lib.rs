@@ -22,6 +22,39 @@ pub extern fn perlin(x: f32, y: f32, z: f32) -> f64 {
     perlin.get([x as f64, y as f64, z as f64])
 }
 
+#[no_mangle]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct WindVec {
+    x: u32,
+    y: u32,
+}
+
+#[no_mangle]
+pub struct Fields {
+    width: u32,
+    height: u32,
+    windvecs: Vec<WindVec>,
+}
+
+#[no_mangle]
+impl Fields {
+    fn get_index(&self, row: u32, col: u32) -> usize {
+        (row * self.width + col) as usize
+    }
+    pub fn new(width: u32, height: u32) -> Fields {
+        let windvecs = (0..width * height)
+            .map(|i| {
+                WindVec { x: 0, y: 0 }
+            })
+            .collect();
+        Fields {
+            width,
+            height,
+            windvecs,
+        }
+    }
+}
+
 // Work in progress...
 #[no_mangle]
 pub extern fn get_perlin_field(cols: usize, rows: usize) -> Vec<Vec<f64>> {
