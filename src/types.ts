@@ -1,4 +1,4 @@
-import { Vec2 } from './Vec2';
+import Victor from 'victor';
 
 export interface Point2 {
   x: number;
@@ -28,7 +28,7 @@ export interface WebAssemblyResult {
 }
 
 export interface Particle {
-  pos: Vec2;
+  pos: Victor;
   update: Function;
   draw: Function;
 }

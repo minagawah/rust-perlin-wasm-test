@@ -11,6 +11,15 @@ Generates wind blown particles using WASM.
 [4. Notes](#notes)  
 [5. LICENSE](#license)  
 
+![screenshot](screenshot.png "Screenshot")
+
+[View Demo](http://tokyo800.jp/minagawah/rust-perlin-wasm-test/)
+
+**Check out [rust-perlin-wasm-test-2](https://github.com/minagawah/rust-perlin-wasm-test-2/)
+which is another attempt to accomplish the same
+except it uses [wasm-pack](https://github.com/rustwasm/wasm-pack)
+instead of wholly depends upon the `nightly` toolchain.**
+
 
 <a id="about"></a>
 ## 1. About
@@ -20,15 +29,6 @@ Just calling from browser the perlin noise generator provided by one of Rust's c
 [noise](https://docs.rs/noise/0.5.1/noise/).  
 Currently, the array iteration for making a vector field (of wind vectors)
 is done by Javascript. Hopefully, I will let Rust do the job instead.
-
-[View Demo](http://tokyo800.jp/minagawah/rust-perlin-wasm-test/)
-
-**Check out [rust-perlin-wasm-test-2](https://github.com/minagawah/rust-perlin-wasm-test-2/)
-which is another attempt to accomplish the same
-except it uses [wasm-pack](https://github.com/rustwasm/wasm-pack)
-instead of wholly depends on the `nightly` toolchain.**
-
-![screenshot](screenshot.png "Screenshot")
 
 
 <a id="dev"></a>
@@ -112,6 +112,7 @@ yarn global add ts-node
 yarn add typescript ts-loader eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin webpack webpack-cli webpack-dev-server file-loader html-loader css-loader style-loader postcss-loader autoprefixer html-webpack-plugin copy-webpack-plugin clean-webpack-plugin mini-css-extract-plugin webpack-manifest-plugin license-webpack-plugin webpack-merge tape @types/tape --dev
 
 yarn add debounce-ctx
+yarn add victor
 ```
 
 

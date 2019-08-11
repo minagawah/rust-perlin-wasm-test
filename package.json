@@ -1,6 +1,6 @@
 {
   "name": "rust-perlin-wasm-test",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generates wind streamlines using WASM.",
   "main": "dist/index.html",
   "browserslist": [
@@ -58,6 +58,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "debounce-ctx": "^1.0.2"
+    "debounce-ctx": "^1.0.2",
+    "victor": "^1.1.0"
   }
 }
