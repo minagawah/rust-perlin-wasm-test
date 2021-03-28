@@ -15,11 +15,10 @@ Generates wind blown particles using WASM.
 
 [View Demo](http://tokyo800.jp/minagawah/rust-perlin-wasm-test/)
 
-**Check out [rust-perlin-wasm-test-2](https://github.com/minagawah/rust-perlin-wasm-test-2/)
-which is another attempt to accomplish the same
-except it uses [wasm-pack](https://github.com/rustwasm/wasm-pack)
-instead of wholly depends upon the `nightly` toolchain.**
-
+**IMPORTANT:**  
+Please note **THIS IS VERY OLD**.  
+Check out my [perlin-experiment](https://github.com/minagawah/perlin-experiment).  
+It is doing something different, but has the latest setup.
 
 <a id="about"></a>
 ## 1. About
